@@ -1,32 +1,53 @@
 'use client'
 
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { toast } from 'sonner'
-import { Mail, ArrowRight } from 'lucide-react'
+import { Mail, ArrowRight, KeyRound } from 'lucide-react'
 
 export default function LoginPage() {
+  const router = useRouter()
   const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
   const [loading, setLoading] = useState(false)
   const [sent, setSent] = useState(false)
+  const [mode, setMode] = useState<'magic' | 'password'>('magic')
   const supabase = createClient()
 
-  async function handleSubmit(e: React.FormEvent) {
+  async function handleMagicLink(e: React.FormEvent) {
     e.preventDefault()
     if (!email.trim()) return
     setLoading(true)
     const { error } = await supabase.auth.signInWithOtp({
       email: email.trim(),
-      options: { emailRedirectTo: `${window.location.origin}/dashboard` },
+      options: { emailRedirectTo: `${window.location.origin}/auth/callback` },
     })
     setLoading(false)
     if (error) {
-      toast.error('Ocurrio un error. Intenta de nuevo.')
+      toast.error('Ocurri\u00f3 un error. Intenta de nuevo.')
     } else {
       setSent(true)
+    }
+  }
+
+  async function handlePassword(e: React.FormEvent) {
+    e.preventDefault()
+    if (!email.trim() || !password) return
+    setLoading(true)
+    const { error } = await supabase.auth.signInWithPassword({
+      email: email.trim(),
+      password,
+    })
+    setLoading(false)
+    if (error) {
+      toast.error('Credenciales incorrectas.')
+    } else {
+      router.push('/dashboard')
+      router.refresh()
     }
   }
 
@@ -39,13 +60,13 @@ export default function LoginPage() {
         </div>
         <div className="space-y-4 max-w-sm">
           <p className="text-[10px] font-semibold tracking-widest text-background/40 uppercase">
-            Diagno&#769;stico empresarial
+            Diagn\u00f3stico empresarial
           </p>
           <p className="text-3xl font-bold text-background leading-tight tracking-tight">
-            Conoce el pulso real de tu cli&#769;nica.
+            Conoce el pulso real de tu cl\u00ednica.
           </p>
           <p className="text-sm text-background/60 leading-relaxed">
-            Revenue no capturado, operaciones optimizables y el camino exacto hacia el crecimiento — todo en un solo reporte.
+            Revenue no capturado, operaciones optimizables y el camino exacto hacia el crecimiento &mdash; todo en un solo reporte.
           </p>
         </div>
         <p className="text-xs text-background/30">
@@ -67,44 +88,90 @@ export default function LoginPage() {
               <div className="space-y-1.5">
                 <h1 className="text-2xl font-bold tracking-tight">Acceder</h1>
                 <p className="text-sm text-muted-foreground">
-                  Ingresa tu correo y te enviamos un enlace de acceso directo.
+                  {mode === 'magic'
+                    ? 'Ingresa tu correo y te enviamos un enlace de acceso directo.'
+                    : 'Ingresa tus credenciales de administrador.'}
                 </p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="space-y-1.5">
-                  <Label htmlFor="email" className="text-xs font-semibold tracking-wide uppercase text-muted-foreground">
-                    Correo electronico
-                  </Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="doctor@clinica.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    autoFocus
-                    className="h-11"
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="w-full h-11 gap-2"
-                  disabled={loading}
+              {mode === 'magic' ? (
+                <form onSubmit={handleMagicLink} className="space-y-4">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="email" className="text-xs font-semibold tracking-wide uppercase text-muted-foreground">
+                      Correo electr\u00f3nico
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="doctor@clinica.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      autoFocus
+                      className="h-11"
+                    />
+                  </div>
+                  <Button type="submit" className="w-full h-11 gap-2" disabled={loading}>
+                    {loading ? 'Enviando...' : (
+                      <>Enviar enlace de acceso <ArrowRight className="w-4 h-4" /></>
+                    )}
+                  </Button>
+                </form>
+              ) : (
+                <form onSubmit={handlePassword} className="space-y-4">
+                  <div className="space-y-1.5">
+                    <Label htmlFor="email-pw" className="text-xs font-semibold tracking-wide uppercase text-muted-foreground">
+                      Correo electr\u00f3nico
+                    </Label>
+                    <Input
+                      id="email-pw"
+                      type="email"
+                      placeholder="admin@medilud.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      autoFocus
+                      className="h-11"
+                    />
+                  </div>
+                  <div className="space-y-1.5">
+                    <Label htmlFor="password" className="text-xs font-semibold tracking-wide uppercase text-muted-foreground">
+                      Contrase\u00f1a
+                    </Label>
+                    <Input
+                      id="password"
+                      type="password"
+                      placeholder="Tu contrase\u00f1a"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      required
+                      className="h-11"
+                    />
+                  </div>
+                  <Button type="submit" className="w-full h-11 gap-2" disabled={loading}>
+                    {loading ? 'Ingresando...' : (
+                      <>Ingresar <ArrowRight className="w-4 h-4" /></>
+                    )}
+                  </Button>
+                </form>
+              )}
+
+              <div className="text-center">
+                <button
+                  type="button"
+                  onClick={() => setMode(mode === 'magic' ? 'password' : 'magic')}
+                  className="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5"
                 >
-                  {loading ? (
-                    'Enviando...'
+                  {mode === 'magic' ? (
+                    <><KeyRound className="w-3 h-3" /> Acceder con contrase\u00f1a</>
                   ) : (
-                    <>
-                      Enviar enlace de acceso
-                      <ArrowRight className="w-4 h-4" />
-                    </>
+                    <><Mail className="w-3 h-3" /> Acceder con enlace de correo</>
                   )}
-                </Button>
-              </form>
+                </button>
+              </div>
 
               <p className="text-center text-xs text-muted-foreground">
-                Acceso exclusivo para cli&#769;nicas invitadas por Medilud
+                Acceso exclusivo para cl\u00ednicas invitadas por Medilud
               </p>
             </>
           ) : (
