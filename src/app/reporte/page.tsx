@@ -77,7 +77,7 @@ export default async function ReportePage() {
         {/* Report header */}
         <div className="space-y-2 border-b border-border/60 pb-7">
           <p className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
-            Reporte de Diagn\u00f3stico &mdash; PulsoMD
+            Reporte de Diagnóstico &mdash; PulsoMD
           </p>
           <h1 className="text-3xl font-bold tracking-tight">{clinicName}</h1>
           <div className="flex items-center justify-between">
@@ -157,7 +157,7 @@ export default async function ReportePage() {
               <div className="flex items-center gap-2.5">
                 <h2 className="text-lg font-bold tracking-tight">Top 3 Quick Wins</h2>
                 <span className="text-[10px] font-semibold tracking-widest text-rose-700 bg-rose-50 border border-rose-100 rounded-full px-2.5 py-0.5">
-                  Prioridad m\u00e1xima
+                  Prioridad máxima
                 </span>
               </div>
               <p className="text-sm text-muted-foreground">
@@ -180,7 +180,7 @@ export default async function ReportePage() {
           <div className="space-y-4">
             <Separator />
             <div className="space-y-1">
-              <h2 className="text-lg font-bold tracking-tight">Nivel 2 &mdash; Optimizaci\u00f3n</h2>
+              <h2 className="text-lg font-bold tracking-tight">Nivel 2 &mdash; Optimización</h2>
               <p className="text-sm text-muted-foreground">Implementar en los siguientes 30 a 90 dias.</p>
             </div>
             <div className="space-y-2.5">
@@ -245,7 +245,7 @@ export default async function ReportePage() {
           <CardContent className="p-0">
             <div className="bg-foreground text-background p-8 text-center space-y-3">
               <p className="text-[10px] font-semibold tracking-widest uppercase opacity-60">Siguiente paso</p>
-              <p className="text-xl font-bold tracking-tight">Este diagn\u00f3stico es el punto de partida.</p>
+              <p className="text-xl font-bold tracking-tight">Este diagnóstico es el punto de partida.</p>
               <p className="text-sm opacity-70 max-w-md mx-auto leading-relaxed">
                 El equipo de Medilud esta listo para ayudarte a ejecutar cada una de estas recomendaciones con un plan de accion personalizado.
               </p>

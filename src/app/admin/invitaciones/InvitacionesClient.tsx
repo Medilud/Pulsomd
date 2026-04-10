@@ -72,7 +72,7 @@ export default function InvitacionesClient({
     setNewUrls((prev) => ({ ...prev, [invitation.id]: data.inviteUrl }))
 
     if (data.warning) {
-      toast.info('Nueva invitaci\u00f3n creada. Copia el enlace para compartirlo manualmente.', {
+      toast.info('Nueva invitación creada. Copia el enlace para compartirlo manualmente.', {
         duration: 5000,
       })
     } else {

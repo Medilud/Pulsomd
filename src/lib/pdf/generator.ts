@@ -146,7 +146,7 @@ export function createPDFDocument(data: PDFData) {
       React.createElement(
         View,
         { style: { flex: 1, justifyContent: 'center' } },
-        React.createElement(Text, { style: { ...styles.caption, color: COLORS.mutedLight, marginBottom: 10 } }, 'REPORTE DE DIAGN\u00d3STICO'),
+        React.createElement(Text, { style: { ...styles.caption, color: COLORS.mutedLight, marginBottom: 10 } }, 'REPORTE DE DIAGNÓSTICO'),
         React.createElement(Text, { style: { ...styles.h1, color: COLORS.white } }, 'PulsoMD'),
         React.createElement(View, { style: { backgroundColor: COLORS.inkLight, height: 1, marginVertical: 18 } }),
         React.createElement(Text, { style: { fontSize: 22, fontFamily: 'Helvetica-Bold', color: COLORS.white, marginBottom: 4 } }, clinic.name),
@@ -163,7 +163,7 @@ export function createPDFDocument(data: PDFData) {
         View,
         null,
         React.createElement(Text, { style: { fontSize: 9, color: COLORS.muted } }, new Date().toLocaleDateString('es-MX', { year: 'numeric', month: 'long', day: 'numeric' })),
-        React.createElement(Text, { style: { fontSize: 9, color: COLORS.muted, marginTop: 2 } }, 'Preparado por Medilud \u00b7 medilud.com.mx'),
+        React.createElement(Text, { style: { fontSize: 9, color: COLORS.muted, marginTop: 2 } }, 'Preparado por Medilud · medilud.com.mx'),
       )
     ),
 

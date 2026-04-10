@@ -28,7 +28,7 @@ export default function LoginPage() {
     })
     setLoading(false)
     if (error) {
-      toast.error('Ocurri\u00f3 un error. Intenta de nuevo.')
+      toast.error('Ocurrió un error. Intenta de nuevo.')
     } else {
       setSent(true)
     }
@@ -60,10 +60,10 @@ export default function LoginPage() {
         </div>
         <div className="space-y-4 max-w-sm">
           <p className="text-[10px] font-semibold tracking-widest text-background/40 uppercase">
-            Diagn\u00f3stico empresarial
+            Diagnóstico empresarial
           </p>
           <p className="text-3xl font-bold text-background leading-tight tracking-tight">
-            Conoce el pulso real de tu cl\u00ednica.
+            Conoce el pulso real de tu clínica.
           </p>
           <p className="text-sm text-background/60 leading-relaxed">
             Revenue no capturado, operaciones optimizables y el camino exacto hacia el crecimiento &mdash; todo en un solo reporte.
@@ -98,7 +98,7 @@ export default function LoginPage() {
                 <form onSubmit={handleMagicLink} className="space-y-4">
                   <div className="space-y-1.5">
                     <Label htmlFor="email" className="text-xs font-semibold tracking-wide uppercase text-muted-foreground">
-                      Correo electr\u00f3nico
+                      Correo electrónico
                     </Label>
                     <Input
                       id="email"
@@ -121,7 +121,7 @@ export default function LoginPage() {
                 <form onSubmit={handlePassword} className="space-y-4">
                   <div className="space-y-1.5">
                     <Label htmlFor="email-pw" className="text-xs font-semibold tracking-wide uppercase text-muted-foreground">
-                      Correo electr\u00f3nico
+                      Correo electrónico
                     </Label>
                     <Input
                       id="email-pw"
@@ -136,12 +136,12 @@ export default function LoginPage() {
                   </div>
                   <div className="space-y-1.5">
                     <Label htmlFor="password" className="text-xs font-semibold tracking-wide uppercase text-muted-foreground">
-                      Contrase\u00f1a
+                      Contraseña
                     </Label>
                     <Input
                       id="password"
                       type="password"
-                      placeholder="Tu contrase\u00f1a"
+                      placeholder="Tu contraseña"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       required
@@ -163,7 +163,7 @@ export default function LoginPage() {
                   className="text-xs text-muted-foreground hover:text-foreground transition-colors inline-flex items-center gap-1.5"
                 >
                   {mode === 'magic' ? (
-                    <><KeyRound className="w-3 h-3" /> Acceder con contrase\u00f1a</>
+                    <><KeyRound className="w-3 h-3" /> Acceder con contraseña</>
                   ) : (
                     <><Mail className="w-3 h-3" /> Acceder con enlace de correo</>
                   )}
@@ -171,7 +171,7 @@ export default function LoginPage() {
               </div>
 
               <p className="text-center text-xs text-muted-foreground">
-                Acceso exclusivo para cl\u00ednicas invitadas por Medilud
+                Acceso exclusivo para clínicas invitadas por Medilud
               </p>
             </>
           ) : (

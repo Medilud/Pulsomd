@@ -62,7 +62,7 @@ export default function QuestionForm({ questions, responses, onChange }: Questio
                 onValueChange={(value) => onChange(q.key, value ?? '')}
               >
                 <SelectTrigger className="h-10">
-                  <SelectValue placeholder="Selecciona una opci\u00f3n" />
+                  <SelectValue placeholder="Selecciona una opción" />
                 </SelectTrigger>
                 <SelectContent>
                   {q.options.map((opt) => (

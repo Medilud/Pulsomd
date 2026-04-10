@@ -82,7 +82,7 @@ export default function InvitePage() {
     setSubmitting(false)
 
     if (error) {
-      toast.error('Error al procesar la invitaci\u00f3n. Intenta de nuevo.')
+      toast.error('Error al procesar la invitación. Intenta de nuevo.')
     } else {
       setEmailSent(true)
     }
@@ -91,7 +91,7 @@ export default function InvitePage() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
-        <p className="text-sm text-muted-foreground">Verificando invitaci\u00f3n...</p>
+        <p className="text-sm text-muted-foreground">Verificando invitación...</p>
       </div>
     )
   }
@@ -104,7 +104,7 @@ export default function InvitePage() {
             <AlertTriangle className="w-6 h-6 text-amber-600" />
           </div>
           <div className="space-y-1.5">
-            <p className="text-xl font-bold tracking-tight">Invitaci\u00f3n no v\u00e1lida</p>
+            <p className="text-xl font-bold tracking-tight">Invitación no válida</p>
             <p className="text-sm text-muted-foreground leading-relaxed">
               Este enlace ya fue utilizado o ha expirado.<br />Contacta a tu asesor de Medilud.
             </p>
@@ -144,7 +144,7 @@ export default function InvitePage() {
                   </p>
                 </div>
                 <p className="text-xs text-muted-foreground">
-                  Haz click en el enlace del correo para continuar con el diagn\u00f3stico.
+                  Haz click en el enlace del correo para continuar con el diagnóstico.
                 </p>
               </div>
             ) : (
@@ -166,7 +166,7 @@ export default function InvitePage() {
                     <Label htmlFor="fullName" className="text-xs font-semibold">Nombre completo</Label>
                     <Input
                       id="fullName"
-                      placeholder="Dr. Juan P\u00e9rez"
+                      placeholder="Dr. Juan Pérez"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
                       required
@@ -174,7 +174,7 @@ export default function InvitePage() {
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <Label htmlFor="email" className="text-xs font-semibold">Correo electr\u00f3nico</Label>
+                    <Label htmlFor="email" className="text-xs font-semibold">Correo electrónico</Label>
                     <Input
                       id="email"
                       type="email"
@@ -188,7 +188,7 @@ export default function InvitePage() {
                   <Button type="submit" className="w-full h-10 gap-2" disabled={submitting}>
                     {submitting ? 'Procesando...' : (
                       <>
-                        Comenzar mi diagn\u00f3stico
+                        Comenzar mi diagnóstico
                         <ArrowRight className="w-4 h-4" />
                       </>
                     )}

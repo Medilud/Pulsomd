@@ -103,7 +103,7 @@ export default function SectionQuestionnaireClient({
     }
 
     if (isLastSection) {
-      toast.success('Diagn\u00f3stico completado. Generando tu reporte...')
+      toast.success('Diagnóstico completado. Generando tu reporte...')
       router.push('/reporte')
     } else if (nextSection) {
       router.push(`/cuestionario/${nextSection}`)
@@ -175,10 +175,10 @@ export default function SectionQuestionnaireClient({
           >
             {isLastSection
               ? sectionProgress === 100
-                ? 'Finalizar diagn\u00f3stico'
+                ? 'Finalizar diagnóstico'
                 : 'Guardar y terminar'
               : nextSection
-              ? 'Siguiente secci\u00f3n'
+              ? 'Siguiente sección'
               : 'Guardar'}
             {!isLastSection && <ChevronRight className="w-4 h-4" />}
           </Button>

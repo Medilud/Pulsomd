@@ -48,9 +48,9 @@ export default async function CuestionarioPage() {
             <ChevronRight className="w-3 h-3 rotate-180" />
             Dashboard
           </Link>
-          <h1 className="text-2xl font-bold tracking-tight">Diagn\u00f3stico de tu cl\u00ednica</h1>
+          <h1 className="text-2xl font-bold tracking-tight">Diagnóstico de tu clínica</h1>
           <p className="text-sm text-muted-foreground">
-            Completa las 6 secciones para recibir tu diagn\u00f3stico personalizado.
+            Completa las 6 secciones para recibir tu diagnóstico personalizado.
           </p>
         </div>
 
@@ -124,7 +124,7 @@ export default async function CuestionarioPage() {
           <div className="pt-2">
             <Link href="/reporte">
               <Button size="lg" className="w-full sm:w-auto h-10 px-6 text-sm font-medium gap-2">
-                Ver mi diagn\u00f3stico completo
+                Ver mi diagnóstico completo
                 <ChevronRight className="w-4 h-4" />
               </Button>
             </Link>

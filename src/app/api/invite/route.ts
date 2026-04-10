@@ -220,7 +220,7 @@ async function sendInviteEmail({
     const { error } = await resend.emails.send({
       from: process.env.RESEND_FROM_EMAIL || 'PulsoMD <pulsomd@medilud.com>',
       to: [to],
-      subject: `${doctor_name}, te invitamos a conocer el pulso de tu cl\u00ednica`,
+      subject: `${doctor_name}, te invitamos a conocer el pulso de tu clínica`,
       html: buildInviteEmail({ doctor_name, clinic_name, inviteUrl }),
     })
     if (error) {
@@ -249,7 +249,7 @@ function buildInviteEmail({
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tu diagn\u00f3stico gratuito de Medilud</title>
+  <title>Tu diagnóstico gratuito de Medilud</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -349,28 +349,28 @@ function buildInviteEmail({
       <div class="body">
         <p class="greeting">Dr./Dra. ${doctor_name},</p>
         <p class="lead">
-          El equipo de <strong>Medilud</strong> te invita a descubrir el estado real de tu cl\u00ednica y las oportunidades de crecimiento que a\u00fan no est\u00e1s capturando.
+          El equipo de <strong>Medilud</strong> te invita a descubrir el estado real de tu clínica y las oportunidades de crecimiento que aún no estás capturando.
         </p>
         <div class="clinic-badge">${clinic_name}</div>
         <ul class="items">
-          <li><span class="dot"></span>Diagn\u00f3stico de las 6 \u00e1reas clave de tu cl\u00ednica</li>
+          <li><span class="dot"></span>Diagnóstico de las 6 áreas clave de tu clínica</li>
           <li><span class="dot"></span>Top 3 oportunidades con mayor impacto inmediato</li>
           <li><span class="dot"></span>Revenue estimado que tienes sin capturar cada mes</li>
-          <li><span class="dot"></span>Reporte descargable con plan de acci\u00f3n personalizado</li>
+          <li><span class="dot"></span>Reporte descargable con plan de acción personalizado</li>
         </ul>
         <p style="font-size:13px;color:#888;text-align:center;margin:0 0 16px;">Tiempo estimado: <strong>12-15 minutos</strong></p>
         <div class="cta-wrapper">
-          <a href="${inviteUrl}" class="cta">Comenzar mi diagn\u00f3stico &rarr;</a>
+          <a href="${inviteUrl}" class="cta">Comenzar mi diagnóstico &rarr;</a>
         </div>
         <p class="note">
-          Este enlace es personal y \u00fanico para tu cl\u00ednica.<br>
+          Este enlace es personal y único para tu clínica.<br>
           Si tienes preguntas, contacta a tu asesor de Medilud.
         </p>
       </div>
       <div class="footer">
         <p>Equipo Medilud &middot; medilud.com.mx</p>
         <p style="margin-top:4px;font-size:11px;">
-          \u00bfNo esperabas este email? Ignora este mensaje.
+          ¿No esperabas este email? Ignora este mensaje.
         </p>
       </div>
     </div>

@@ -47,7 +47,7 @@ export default function AdminInvitarPage() {
     setLoading(false)
 
     if (!res.ok) {
-      toast.error(data.error || 'Error al enviar la invitaci\u00f3n')
+      toast.error(data.error || 'Error al enviar la invitación')
       return
     }
 
@@ -59,7 +59,7 @@ export default function AdminInvitarPage() {
     })
 
     if (!data.warning) {
-      toast.success(`Invitaci\u00f3n enviada a ${form.email}`)
+      toast.success(`Invitación enviada a ${form.email}`)
     }
 
     setForm({ email: '', doctor_name: '', clinic_name: '' })
@@ -124,7 +124,7 @@ export default function AdminInvitarPage() {
               <CardContent className="p-6 space-y-5">
                 <div className="space-y-1">
                   <p className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
-                    {result.warning ? 'Enlace de invitaci\u00f3n' : 'Invitaci\u00f3n enviada'}
+                    {result.warning ? 'Enlace de invitación' : 'Invitación enviada'}
                   </p>
                   <p className="text-base font-bold tracking-tight">{result.clinic}</p>
                   <p className="text-sm text-muted-foreground">{result.email}</p>
@@ -192,7 +192,7 @@ export default function AdminInvitarPage() {
                   </Label>
                   <Input
                     id="doctor_name"
-                    placeholder="Dr. Juan P\u00e9rez"
+                    placeholder="Dr. Juan Pérez"
                     value={form.doctor_name}
                     onChange={(e) => set('doctor_name', e.target.value)}
                     required
@@ -205,7 +205,7 @@ export default function AdminInvitarPage() {
                   </Label>
                   <Input
                     id="clinic_name"
-                    placeholder="Cl\u00ednica Est\u00e9tica Dr. P\u00e9rez"
+                    placeholder="Clínica Estética Dr. Pérez"
                     value={form.clinic_name}
                     onChange={(e) => set('clinic_name', e.target.value)}
                     required
@@ -261,11 +261,11 @@ export default function AdminInvitarPage() {
                   disabled={loading || !form.email || !form.doctor_name || !form.clinic_name}
                 >
                   {loading ? (
-                    'Generando invitaci\u00f3n...'
+                    'Generando invitación...'
                   ) : (
                     <>
                       <Send className="w-3.5 h-3.5" />
-                      Enviar invitaci\u00f3n
+                      Enviar invitación
                     </>
                   )}
                 </Button>

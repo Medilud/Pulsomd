@@ -11,34 +11,34 @@ import { Card, CardContent } from '@/components/ui/card'
 import { toast } from 'sonner'
 import { Stethoscope, TrendingUp, ClipboardList, Clock, Check, ChevronRight } from 'lucide-react'
 
-const SPECIALTIES = ['Medicina Est\u00e9tica', 'Dermatolog\u00eda', 'Cirug\u00eda Pl\u00e1stica', 'Mixta']
+const SPECIALTIES = ['Medicina Estética', 'Dermatología', 'Cirugía Plástica', 'Mixta']
 
 const STEPS = [
-  { number: 1, title: 'Datos de tu cl\u00ednica' },
-  { number: 2, title: '\u00bfQu\u00e9 es PulsoMD?' },
+  { number: 1, title: 'Datos de tu clínica' },
+  { number: 2, title: '¿Qué es PulsoMD?' },
   { number: 3, title: 'Listo para comenzar' },
 ]
 
 const FEATURES = [
   {
     icon: Stethoscope,
-    title: 'Diagn\u00f3stico completo de tu negocio',
-    desc: 'Evaluamos 6 \u00e1reas clave: operaciones, finanzas, equipo, pacientes, tecnolog\u00eda y perfil general.',
+    title: 'Diagnóstico completo de tu negocio',
+    desc: 'Evaluamos 6 áreas clave: operaciones, finanzas, equipo, pacientes, tecnología y perfil general.',
   },
   {
     icon: TrendingUp,
     title: 'Oportunidades cuantificadas',
-    desc: 'Te decimos exactamente cu\u00e1nto dinero hay en juego en cada \u00e1rea de mejora, en pesos mexicanos.',
+    desc: 'Te decimos exactamente cuánto dinero hay en juego en cada área de mejora, en pesos mexicanos.',
   },
   {
     icon: ClipboardList,
-    title: 'Plan de acci\u00f3n espec\u00edfico',
-    desc: 'No solo el diagn\u00f3stico \u2014 los pasos concretos, el timeline y el responsable de cada acci\u00f3n.',
+    title: 'Plan de acción específico',
+    desc: 'No solo el diagnóstico — los pasos concretos, el timeline y el responsable de cada acción.',
   },
   {
     icon: Clock,
     title: '15 minutos, impacto permanente',
-    desc: 'El cuestionario toma menos de 15 minutos. Tu progreso se guarda autom\u00e1ticamente.',
+    desc: 'El cuestionario toma menos de 15 minutos. Tu progreso se guarda automáticamente.',
   },
 ]
 
@@ -93,7 +93,7 @@ export default function OnboardingPage() {
     setSaving(true)
     const { data: { user } } = await supabase.auth.getUser()
     if (!user) {
-      toast.error('Sesi\u00f3n expirada. Por favor inicia sesi\u00f3n de nuevo.')
+      toast.error('Sesión expirada. Por favor inicia sesión de nuevo.')
       return
     }
 
@@ -188,19 +188,19 @@ export default function OnboardingPage() {
           <Card className="border border-border/60 shadow-none">
             <CardContent className="p-7 space-y-5">
               <div className="space-y-1">
-                <h2 className="text-xl font-bold tracking-tight">Datos de tu cl\u00ednica</h2>
+                <h2 className="text-xl font-bold tracking-tight">Datos de tu clínica</h2>
                 <p className="text-sm text-muted-foreground">
-                  Esta informaci\u00f3n personaliza tu diagn\u00f3stico.
+                  Esta información personaliza tu diagnóstico.
                 </p>
               </div>
 
               <div className="space-y-4">
                 <div className="space-y-1.5">
                   <Label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
-                    Nombre de la cl\u00ednica <span className="text-destructive">*</span>
+                    Nombre de la clínica <span className="text-destructive">*</span>
                   </Label>
                   <Input
-                    placeholder="Cl\u00ednica Est\u00e9tica Dr. P\u00e9rez"
+                    placeholder="Clínica Estética Dr. Pérez"
                     value={form.name}
                     onChange={e => set('name', e.target.value)}
                     className="h-10"
@@ -227,7 +227,7 @@ export default function OnboardingPage() {
                 <div className="grid grid-cols-2 gap-3">
                   <div className="space-y-1.5">
                     <Label className="text-xs font-semibold text-muted-foreground uppercase tracking-wide">
-                      A\u00f1os en operaci\u00f3n
+                      Años en operación
                     </Label>
                     <Input
                       type="number" min="0" placeholder="ej: 5"
@@ -294,9 +294,9 @@ export default function OnboardingPage() {
                 <p className="text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
                   Tu herramienta
                 </p>
-                <h2 className="text-xl font-bold tracking-tight">\u00bfQu\u00e9 es PulsoMD?</h2>
+                <h2 className="text-xl font-bold tracking-tight">¿Qué es PulsoMD?</h2>
                 <p className="text-sm text-muted-foreground">
-                  Tu diagn\u00f3stico empresarial personalizado.
+                  Tu diagnóstico empresarial personalizado.
                 </p>
               </div>
 
@@ -336,7 +336,7 @@ export default function OnboardingPage() {
                 <div className="space-y-1">
                   <h2 className="text-xl font-bold tracking-tight">Todo listo</h2>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Responde las 6 secciones sobre tu cl\u00ednica. Al terminar, recibir\u00e1s tu diagn\u00f3stico con las oportunidades de crecimiento m\u00e1s importantes.
+                    Responde las 6 secciones sobre tu clínica. Al terminar, recibirás tu diagnóstico con las oportunidades de crecimiento más importantes.
                   </p>
                 </div>
               </div>
@@ -346,9 +346,9 @@ export default function OnboardingPage() {
                 <ul className="space-y-2 text-xs text-muted-foreground">
                   {[
                     'Puedes pausar y continuar cuando quieras',
-                    'Tus respuestas se guardan autom\u00e1ticamente',
+                    'Tus respuestas se guardan automáticamente',
                     'No hay respuestas correctas o incorrectas',
-                    'Mientras m\u00e1s detallado, mejor el diagn\u00f3stico',
+                    'Mientras más detallado, mejor el diagnóstico',
                   ].map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <Check className="w-3.5 h-3.5 text-emerald-600 mt-0.5 flex-shrink-0" />
@@ -362,7 +362,7 @@ export default function OnboardingPage() {
                 className="w-full h-10 gap-2"
                 onClick={() => router.push('/cuestionario')}
               >
-                Comenzar diagn\u00f3stico
+                Comenzar diagnóstico
                 <ChevronRight className="w-4 h-4" />
               </Button>
             </CardContent>
